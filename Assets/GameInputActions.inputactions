@@ -1,5 +1,5 @@
 {
-    "name": "IsometricCharacterController",
+    "name": "GameInputActions",
     "maps": [
         {
             "name": "Player",
@@ -13,6 +13,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "Clone",
+                    "type": "Button",
+                    "id": "692b2767-ec24-4cb7-a03a-d600a59011f7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -70,6 +79,17 @@
                     "action": "Move",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "0c7ec12e-4073-4023-beac-23feaeb266ed",
+                    "path": "<Keyboard>/f",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Clone",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }
