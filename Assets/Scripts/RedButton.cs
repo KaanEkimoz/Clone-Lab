@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 public class RedButton : MonoBehaviour, IInteractable
@@ -14,9 +15,15 @@ public class RedButton : MonoBehaviour, IInteractable
     private void PressButton()
     {
         OnButtonPressed?.Invoke();
+        StartCoroutine(ButtonHold());
     }
     private void ReleaseButton()
     {
         OnButtonReleased?.Invoke();
+    }
+    private IEnumerator ButtonHold()
+    {
+        yield return new WaitForSeconds(buttonHoldTime);
+        ReleaseButton();
     }
 }
