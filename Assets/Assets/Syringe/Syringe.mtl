@@ -1,0 +1,13 @@
+# Blender 3.4.1 MTL File: 'Syringe.blend'
+# www.blender.org
+
+newmtl Syringe
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 9
+map_Kd C:/Work/2023/92. Medical Devices/8. Syringe/Textures/Syringe_BaseColor.png
+map_Ns C:/Work/2023/92. Medical Devices/8. Syringe/Textures/Syringe_Roughness.png
+map_refl C:/Work/2023/92. Medical Devices/8. Syringe/Textures/Syringe_Metallic.png
+map_d C:/Work/2023/92. Medical Devices/8. Syringe/Textures/Syringe_Alpha.png
