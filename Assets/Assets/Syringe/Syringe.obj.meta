@@ -3,7 +3,12 @@ guid: 2970df87322d03e43bd8993781e4d223
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Syringe
+    second: {fileID: 2100000, guid: 62e8bd233449d5944b04a1427857616d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

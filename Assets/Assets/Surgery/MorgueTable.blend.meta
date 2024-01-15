@@ -3,7 +3,12 @@ guid: 416a19c2a6a5b044da41712712390bb8
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: MorgueTable
+    second: {fileID: 2100000, guid: 3007eda05fa1c244c91585dc89738d5d, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

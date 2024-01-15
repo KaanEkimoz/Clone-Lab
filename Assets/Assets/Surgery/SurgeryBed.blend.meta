@@ -3,7 +3,22 @@ guid: 0882fef5b7f334f47a83cbd06ecc0d4d
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Construction
+    second: {fileID: 2100000, guid: 8bf3c62d914fdd741998725727608ed4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Matres
+    second: {fileID: 2100000, guid: a75da6ab929ae68478a2114850bc93ff, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Spring
+    second: {fileID: 2100000, guid: bfb5d2cf79ceb824095ae8a0aba89ca8, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

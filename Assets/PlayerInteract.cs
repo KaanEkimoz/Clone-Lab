@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -6,16 +5,15 @@ using UnityEngine.InputSystem;
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private SphereCollider interactableSphere;
-    private List<IInteractable> _interactableObjects;
+    private List<IInteractable> _interactableObjects = new();
     private void OnEnable()
     {
         InputManager.GameInputAction.Player.Interact.performed += InteractInput;
     }
     private void OnDisable()
     {
-        
+        InputManager.GameInputAction.Player.Interact.performed -= InteractInput;
     }
-    
     private void OnTriggerEnter(Collider other)
     {
         var interactable = other.gameObject.GetComponent<IInteractable>();
@@ -28,14 +26,16 @@ public class PlayerInteract : MonoBehaviour
         if(interactable != null)
             _interactableObjects.Remove(interactable);
     }
-
     private void FindNearestInteractable()
     {
     }
-
     private void InteractInput(InputAction.CallbackContext value)
     {
-        Interact(_interactableObjects[0]);
+        if (_interactableObjects[0] != null)
+        {
+            Interact(_interactableObjects[0]);
+        }
+        
     }
     private void Interact(IInteractable interactable)
     {

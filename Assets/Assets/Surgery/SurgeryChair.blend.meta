@@ -3,7 +3,17 @@ guid: 9bdbb770712bf494b8d67105011b6a73
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Construction
+    second: {fileID: 2100000, guid: eb6581e8fd77ae74890011c433b8d086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pillow
+    second: {fileID: 2100000, guid: 679a0c9e259a2f84f906960e8afa2f12, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

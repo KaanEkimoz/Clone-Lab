@@ -3,7 +3,12 @@ guid: 041f2e310a50606408fd1e4caaf0a974
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: SurgeryLamp
+    second: {fileID: 2100000, guid: f3cf50ba623d10e4aae34d38fdfa696f, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
