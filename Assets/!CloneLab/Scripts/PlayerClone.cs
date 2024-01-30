@@ -1,19 +1,22 @@
 using UnityEngine;
-using UnityEngine.InputSystem;
-using System;
 using StarterAssets;
 
 public class PlayerClone : MonoBehaviour
 {
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private TrailRenderer cloneTrail;
+    private Animator _animator;
     private StarterAssetsInputs _input;
     private GameObject clone;
     private Transform cloneTransform => clone.transform;
     private Transform playerTransform => transform;
+
+    private int _animIDRage;
     private void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
+        _animator = GetComponent<Animator>();
+        AssignAnimationIDs();
         if (!clone)
         {
             clone = Instantiate(clonePrefab);
@@ -42,6 +45,7 @@ public class PlayerClone : MonoBehaviour
         cloneTrail.time = 5;
         cloneTransform.position = playerTransform.position;
         cloneTransform.eulerAngles = playerTransform.eulerAngles;
+        _animator.SetTrigger(_animIDRage);
     }
     private void CallBackToClonePosition()
     {
@@ -49,5 +53,9 @@ public class PlayerClone : MonoBehaviour
         playerTransform.position = cloneTransform.position;
         playerTransform.eulerAngles = cloneTransform.eulerAngles;
         clone.SetActive(false);
+    }
+    private void AssignAnimationIDs()
+    {
+        _animIDRage = Animator.StringToHash("Rage");
     }
 }
