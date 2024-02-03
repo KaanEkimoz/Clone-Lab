@@ -1,13 +1,16 @@
+using System.Collections;
 using UnityEngine;
 using StarterAssets;
 
 public class PlayerClone : MonoBehaviour
 {
+    [SerializeField] private float callbackTime = 3;
     [SerializeField] private GameObject clonePrefab;
     [SerializeField] private TrailRenderer cloneTrail;
     private Animator _animator;
     private StarterAssetsInputs _input;
     private GameObject clone;
+    private Coroutine cloneTimer;
     private Transform cloneTransform => clone.transform;
     private Transform playerTransform => transform;
 
@@ -41,6 +44,7 @@ public class PlayerClone : MonoBehaviour
     }
     private void CreateClone()
     {
+        cloneTimer = StartCoroutine(CloneTimer());
         clone.SetActive(true);
         cloneTrail.time = 5;
         cloneTransform.position = playerTransform.position;
@@ -57,5 +61,11 @@ public class PlayerClone : MonoBehaviour
     private void AssignAnimationIDs()
     {
         _animIDRage = Animator.StringToHash("Rage");
+    }
+
+    private IEnumerator CloneTimer()
+    {
+        yield return new WaitForSeconds(callbackTime);
+        CallBackToClonePosition();
     }
 }
