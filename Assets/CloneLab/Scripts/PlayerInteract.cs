@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using StarterAssets;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -6,14 +8,13 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private SphereCollider interactableSphere;
     private List<IInteractable> _interactableObjects = new();
-    private void OnEnable()
+    private StarterAssetsInputs _input;
+
+    private void Start()
     {
-        InputManager.GameInputAction.Player.Interact.performed += InteractInput;
+        _input = GetComponent<StarterAssetsInputs>();
     }
-    private void OnDisable()
-    {
-        InputManager.GameInputAction.Player.Interact.performed -= InteractInput;
-    }
+
     private void OnTriggerEnter(Collider other)
     {
         var interactable = other.gameObject.GetComponent<IInteractable>();
@@ -26,14 +27,22 @@ public class PlayerInteract : MonoBehaviour
         if(interactable != null)
             _interactableObjects.Remove(interactable);
     }
+
+    private void FixedUpdate()
+    {
+        InteractInput();
+    }
+
     private void FindNearestInteractable()
     {
     }
-    private void InteractInput(InputAction.CallbackContext value)
+    private void InteractInput()
     {
-        if (_interactableObjects[0] != null)
+        if (_input.interact)
         {
             Interact(_interactableObjects[0]);
+
+            _input.clone = false;
         }
         
     }

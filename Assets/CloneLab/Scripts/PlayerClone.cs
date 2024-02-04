@@ -57,6 +57,7 @@ public class PlayerClone : MonoBehaviour
         playerTransform.position = cloneTransform.position;
         playerTransform.eulerAngles = cloneTransform.eulerAngles;
         clone.SetActive(false);
+        StopCoroutine(cloneTimer);
     }
     private void AssignAnimationIDs()
     {

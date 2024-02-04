@@ -13,6 +13,7 @@ namespace StarterAssets
 		public bool jump;
 		public bool sprint;
 		public bool clone;
+		public bool interact;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -49,6 +50,10 @@ namespace StarterAssets
 		{
 			CloneInput(value.isPressed);
 		}
+		public void OnInteract(InputValue value)
+		{
+			InteractInput(value.isPressed);
+		}
 #endif
 
 
@@ -75,6 +80,11 @@ namespace StarterAssets
 		public void CloneInput(bool newCloneState)
 		{
 			clone = newCloneState;
+		}
+
+		public void InteractInput(bool newInteractState)
+		{
+			interact = newInteractState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

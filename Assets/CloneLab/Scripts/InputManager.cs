@@ -1,10 +1,10 @@
+using StarterAssets;
 using UnityEngine;
 public class InputManager : MonoBehaviour
 {
-    public static GameInputActions GameInputAction { get; private set; }
+    public static StarterAssetsInputs starterAssetsInput { get; private set; }
     private void Awake()
     {
-        GameInputAction = new GameInputActions();
-        GameInputAction.Enable();
+        starterAssetsInput = FindObjectOfType<StarterAssetsInputs>();
     }
 }

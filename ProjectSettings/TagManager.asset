@@ -8,6 +8,7 @@ TagManager:
   - CinemachineTarget
   - ScreenCamera
   - cockpit_capitalLaser
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -24,18 +25,18 @@ TagManager:
   - MainCameraOnly
   - Wall
   - Door
+  - Ground
   - 
   - 
   - 
   - 
   - 
-  - Cockpit
-  - Cockpit_3DSkybox
-  - Cockpit_3DSkybox_BG
-  - Cockpit_Ally
-  - Cockpit_Invader
-  - Cockpit_BG
-  - Cockpit_DepthClear
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
