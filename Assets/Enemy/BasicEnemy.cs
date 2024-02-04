@@ -70,8 +70,8 @@ public class BasicEnemy : MonoBehaviour
                 _currentWaypointIndex = 0;
             }
         }
-        _isWalking = true;
         _agent.SetDestination(waypoints[_currentWaypointIndex].position);
+        _isWalking = true;
     }
     private void ChasePlayer()
     {

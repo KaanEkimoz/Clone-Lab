@@ -42,7 +42,7 @@ public class PlayerInteract : MonoBehaviour
         {
             Interact(_interactableObjects[0]);
 
-            _input.clone = false;
+            _input.interact = false;
         }
         
     }
