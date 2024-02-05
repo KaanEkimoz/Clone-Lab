@@ -22,6 +22,8 @@ public class PlayerClone : MonoBehaviour
     private bool stopMove;
     private void Start()
     {
+        clone = clonePrefab;
+        clone.SetActive(false);
         _input = GetComponent<StarterAssetsInputs>();
         _animator = GetComponent<Animator>();
         AssignAnimationIDs();
@@ -46,8 +48,6 @@ public class PlayerClone : MonoBehaviour
 
             _input.clone = false;
         }
-        if(stopMove)
-            _input.MoveInput(Vector2.zero);
     }
     private void CreateClone()
     {
@@ -56,7 +56,7 @@ public class PlayerClone : MonoBehaviour
         cloneTrail.time = 5;
         cloneTransform.position = playerTransform.position;
         cloneTransform.eulerAngles = playerTransform.eulerAngles;
-        _animator.SetTrigger(_animIDRage);
+        //_animator.SetTrigger(_animIDRage);
         OnCloneCreated.Invoke();
         StartCoroutine(WaitForCreateClone());
     }
@@ -64,7 +64,7 @@ public class PlayerClone : MonoBehaviour
     private IEnumerator WaitForCreateClone()
     {
         stopMove = true;
-        yield return new WaitForSeconds(0.4f);
+        yield return new WaitForSeconds(0.1f);
         stopMove = false;
         OnCloneCreateEnded.Invoke();
     }
