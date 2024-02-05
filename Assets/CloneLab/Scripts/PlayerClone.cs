@@ -1,6 +1,7 @@
 using System.Collections;
 using UnityEngine;
 using StarterAssets;
+using UnityEngine.Events;
 
 public class PlayerClone : MonoBehaviour
 {
@@ -14,7 +15,11 @@ public class PlayerClone : MonoBehaviour
     private Transform cloneTransform => clone.transform;
     private Transform playerTransform => transform;
 
+    public UnityEvent OnCloneCreated;
+    public UnityEvent OnCloneCreateEnded;
+
     private int _animIDRage;
+    private bool stopMove;
     private void Start()
     {
         _input = GetComponent<StarterAssetsInputs>();
@@ -41,6 +46,8 @@ public class PlayerClone : MonoBehaviour
 
             _input.clone = false;
         }
+        if(stopMove)
+            _input.MoveInput(Vector2.zero);
     }
     private void CreateClone()
     {
@@ -50,6 +57,16 @@ public class PlayerClone : MonoBehaviour
         cloneTransform.position = playerTransform.position;
         cloneTransform.eulerAngles = playerTransform.eulerAngles;
         _animator.SetTrigger(_animIDRage);
+        OnCloneCreated.Invoke();
+        StartCoroutine(WaitForCreateClone());
+    }
+
+    private IEnumerator WaitForCreateClone()
+    {
+        stopMove = true;
+        yield return new WaitForSeconds(0.4f);
+        stopMove = false;
+        OnCloneCreateEnded.Invoke();
     }
     private void CallBackToClonePosition()
     {
@@ -66,7 +83,7 @@ public class PlayerClone : MonoBehaviour
 
     private IEnumerator CloneTimer()
     {
-        yield return new WaitForSeconds(callbackTime);
+        yield return new WaitForSeconds(callbackTime + 0.6f);
         CallBackToClonePosition();
     }
 }

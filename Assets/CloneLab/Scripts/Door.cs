@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -8,6 +9,9 @@ public class Door : MonoBehaviour, IInteractable
     private Animator _doorAnim;
     private static readonly int DoorOpen = Animator.StringToHash("T_DoorOpen");
     private static readonly int DoorClosed = Animator.StringToHash("T_DoorClosed");
+    
+    public UnityEvent OnDoorOpened;
+    public UnityEvent OnDoorClosed;
 
     private void Start()
     {
@@ -24,6 +28,7 @@ public class Door : MonoBehaviour, IInteractable
     {
         _doorAnim.SetTrigger(DoorOpen);
         StartCoroutine(DoorFreeze());
+        OnDoorOpened.Invoke();
     }
     private IEnumerator DoorFreeze()
     {
@@ -34,6 +39,7 @@ public class Door : MonoBehaviour, IInteractable
     private void CloseDoor()
     {
         _doorAnim.SetTrigger(DoorClosed);
+        OnDoorClosed.Invoke();
     }
 
 }

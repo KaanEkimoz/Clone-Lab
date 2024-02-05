@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
@@ -8,17 +9,25 @@ public class RedButton : MonoBehaviour, IInteractable
     private bool isPressable = true;
 
     [SerializeField] private float buttonHoldTime = 3f;
-    
+
+    private void Start()
+    {
+        isPressable = true;
+    }
+
     public void Interact()
     {
         PressButton();
     }
     private void PressButton()
     {
-        Debug.Log("BUTTON PRESSED");
-        OnButtonPressed?.Invoke();
-        isPressable = false; 
-        StartCoroutine(ButtonHold());
+        if (isPressable)
+        {
+            isPressable = false; 
+            Debug.Log("BUTTON PRESSED");
+            OnButtonPressed?.Invoke();
+            StartCoroutine(ButtonHold());
+        }
     }
     private void ReleaseButton()
     {
