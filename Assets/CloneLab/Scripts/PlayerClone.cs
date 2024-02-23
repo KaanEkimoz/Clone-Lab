@@ -56,7 +56,6 @@ public class PlayerClone : MonoBehaviour
         cloneTrail.time = 5;
         cloneTransform.position = playerTransform.position;
         cloneTransform.eulerAngles = playerTransform.eulerAngles;
-        //_animator.SetTrigger(_animIDRage);
         OnCloneCreated.Invoke();
         StartCoroutine(WaitForCreateClone());
     }
